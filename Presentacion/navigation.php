@@ -26,7 +26,7 @@
       			</li>
     		</ul>
     	
-            <form class="form-inline" action="connection.php" method="POST">
+            <form class="form-inline" action="../Datos/connection.php" method="POST">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="Search"> 
                 <button class="btn btn-secondary" type="submit">Search</button>
             </form>

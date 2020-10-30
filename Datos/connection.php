@@ -1,5 +1,70 @@
 <?php
-//Instantiates the mysqli_class and creates a connection to host localhost
+class connection
+{
+    function connecting()
+    {
+        $url = 'mysql:dbname=dbwebphp;host=localhost';
+        $user = 'root';
+        $password = 'mysqladmin';
+        
+        try {
+            $con = new PDO($url, $user, $password);
+            echo 'Connection sucessful';
+            
+        } catch (PDOException $e) {
+            echo 'Connection failed' . $e->getMesssage();
+        }
+        return $con;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Instantiates the mysqli_class and creates a connection to host localhost
 $connection = new mysqli("127.0.0.1", "root", "mysqladmin", "dbwebphp"); 
 
 if(mysqli_connect_errno()){
@@ -31,13 +96,13 @@ if($result = $connection->query($query)){
             
             switch($web){ //Compare the result
                 case "IDOR":
-                    header("Location: IDOR.php"); //Redirect to the page if exists
+                    header("Location: ../Presentacion/IDOR.php"); //Redirect to the page if exists
                     break;
                 case "XSS":
-                    header("Location: XSS.php");
+                    header("Location: ../Presentacion/XSS.php");
                     break;
                 case "SQLI":
-                    header("Location: SQLi.php");
+                    header("Location: ../Presentacion/SQLi.php");
                     break; 
                 
                 default:
@@ -49,17 +114,3 @@ if($result = $connection->query($query)){
         $connection->free();
     }
     
-//Get the query from the textbox named Insert
-$data_to_insert = $connection->escape_string($_REQUEST['Insert']);
-//INSERT DATA
-$insert = "INSERT INTO tb_vulnerabilities (WEB) VALUES('". $data_to_insert . "')";
-
-if($result = $connection->query($insert) == TRUE){
-    echo "SE HA INSERTADO EL DATO CON EXITO";
-}else{
-    echo "Error:" . $data_to_insert . "<br>" . $connection->error;
-}
-    
-
-mysqli_close($connection);
-            

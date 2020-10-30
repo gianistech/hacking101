@@ -10,7 +10,16 @@
     <body>
         <?php require_once 'header.php';?>
         <?php require_once 'navigation.php';?>
+        
+        <!--PRUEBA DE CONEXIÓN
+        <?php require_once '../Datos/connection.php';
             
+        $cn = new connection();
+        
+        $cn->conectar();
+    
+        ?>
+        -->
         <div class="container">    
         	<div class="card-group">
   				<div class="card">
